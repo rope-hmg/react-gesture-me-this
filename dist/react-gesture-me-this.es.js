@@ -152,21 +152,21 @@ const x = {
   let h;
   if (r) {
     const u = o.fingers.values();
-    let { value: i, done: n } = u.next(), _ = i.is_moving_toward_centroid(), l = !0;
-    for (; !n && l; )
-      l = _ === i.is_moving_toward_centroid(), { value: i, done: n } = u.next();
-    if (l) {
+    let { value: i, done: n } = u.next(), _ = i.is_moving_toward_centroid(), a = !0;
+    for (; !n && a; )
+      a = _ === i.is_moving_toward_centroid(), { value: i, done: n } = u.next();
+    if (a) {
       const m = _ ? 0 : 1;
-      let a = 0;
+      let l = 0;
       for (const g of o.fingers.values())
-        a += g.position_delta.length();
-      a /= o.finger_count, a *= s, h = { strength: a, direction: m };
+        l += g.position_delta.length();
+      l /= o.finger_count, l *= s, h = { strength: l, direction: m };
     }
   }
   return h ? { is_recognised: !0, metrics: h } : { is_recognised: !1 };
 };
 function b(o) {
-  const t = d.useRef();
+  const t = d.useRef(null);
   let e;
   return d.useEffect(() => {
     if (t.current) {
