@@ -3,8 +3,8 @@
 A tiny multitouch gesture library for the browser.
 
 ```bash
-dist/react-gesture-me-this.es.js   5.82 kB │ gzip: 1.64 kB │ map: 12.50 kB
-dist/react-gesture-me-this.umd.js  4.36 kB │ gzip: 1.45 kB │ map: 11.94 kB
+dist/react-gesture-me-this.es.js   5.80 kB │ gzip: 1.63 kB │ map: 12.44 kB
+dist/react-gesture-me-this.umd.js  4.35 kB │ gzip: 1.44 kB │ map: 11.85 kB
 ```
 
 # Gestures

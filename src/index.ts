@@ -16,10 +16,10 @@ export function useGestures(handlers: GestureHandlers) {
 
   React.useEffect(() => {
     if (ref.current) {
-      const a: TouchHandlers = {};
+      const touchHandlers: TouchHandlers = {};
 
       if (handlers.onPinch) {
-        a.on_move = (metrics) => {
+        touchHandlers.on_move = (metrics) => {
           const result = pinch_zoom(metrics);
           if (result.is_recognised) {
             handlers.onPinch?.(result.metrics);
@@ -27,7 +27,7 @@ export function useGestures(handlers: GestureHandlers) {
         };
       }
 
-      controller = new GestureController(ref.current, a);
+      controller = new GestureController(ref.current, touchHandlers);
     }
 
     return () => {
@@ -35,5 +35,5 @@ export function useGestures(handlers: GestureHandlers) {
     };
   }, [ref]);
 
-  return [ref];
+  return ref;
 }

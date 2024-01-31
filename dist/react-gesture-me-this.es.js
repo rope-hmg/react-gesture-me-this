@@ -1,4 +1,4 @@
-import _ from "react";
+import d from "react";
 class c {
   constructor(t, e) {
     this.x = t, this.y = e;
@@ -152,11 +152,11 @@ const x = {
   let h;
   if (r) {
     const u = o.fingers.values();
-    let { value: i, done: n } = u.next(), d = i.is_moving_toward_centroid(), l = !0;
+    let { value: i, done: n } = u.next(), _ = i.is_moving_toward_centroid(), l = !0;
     for (; !n && l; )
-      l = d === i.is_moving_toward_centroid(), { value: i, done: n } = u.next();
+      l = _ === i.is_moving_toward_centroid(), { value: i, done: n } = u.next();
     if (l) {
-      const m = d ? 0 : 1;
+      const m = _ ? 0 : 1;
       let a = 0;
       for (const g of o.fingers.values())
         a += g.position_delta.length();
@@ -166,20 +166,21 @@ const x = {
   return h ? { is_recognised: !0, metrics: h } : { is_recognised: !1 };
 };
 function b(o) {
-  const t = _.useRef(), [e, s] = _.useState();
-  return _.useEffect(() => {
+  const t = d.useRef();
+  let e;
+  return d.useEffect(() => {
     if (t.current) {
-      const r = {};
-      o.onPinch && (r.on_move = (h) => {
-        var i;
-        const u = y(h);
-        u.is_recognised && ((i = o.onPinch) == null || i.call(o, u.metrics));
-      }), s(new p(t.current, r));
+      const s = {};
+      o.onPinch && (s.on_move = (r) => {
+        var u;
+        const h = y(r);
+        h.is_recognised && ((u = o.onPinch) == null || u.call(o, h.metrics));
+      }), e = new p(t.current, s);
     }
     return () => {
       e == null || e.disableGestures();
     };
-  }, [t]), [t, e];
+  }, [t]), t;
 }
 export {
   b as useGestures
