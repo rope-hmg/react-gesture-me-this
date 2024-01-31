@@ -1,0 +1,32 @@
+{
+  "name": "react-gesture-me-this",
+  "version": "1.0.0",
+  "description": "",
+  "files": ["/dist"],
+  "main": "./dist/react-gesture-me-this.umd.js",
+  "module": "./dist/react-gesture-me-this.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/react-gesture-me-this.es.js",
+      "require": "./dist/react-gesture-me-this.umd.js"
+    }
+  },
+  "scripts": {
+    "serve": "vite",
+    "build": "vite build; npx tsc",
+    "preview": "vite preview"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gesture-me-this": "rope-hmg/gesture-me-this",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.48",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12"
+  }
+}
