@@ -3,5 +3,5 @@ import { PinchMetrics } from "gesture-me-this";
 export type GestureHandlers = {
     onPinch?(metrics: PinchMetrics): void;
 };
-export declare function useGestures(handlers: GestureHandlers): React.RefObject<HTMLElement>;
+export declare function useGestures<T>(handlers: GestureHandlers): React.RefObject<T>;
 //# sourceMappingURL=index.d.ts.map
