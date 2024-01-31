@@ -10,7 +10,9 @@ export type GestureHandlers = {
   onPinch?(metrics: PinchMetrics): void;
 };
 
-export function useGestures(handlers: GestureHandlers): React.Ref<HTMLElement> {
+export function useGestures(
+  handlers: GestureHandlers,
+): React.RefObject<HTMLElement> {
   const ref = React.useRef(null);
   let controller: GestureController | undefined;
 
