@@ -10,9 +10,11 @@ export type GestureHandlers = {
   onPinch?(metrics: PinchMetrics): void;
 };
 
-export function useGestures<T>(handlers: GestureHandlers): React.RefObject<T> {
-  const ref = React.useRef(null);
-  let controller: GestureController | undefined;
+export function useGestures<T extends HTMLElement>(
+  ref: React.RefObject<T>,
+  handlers: GestureHandlers,
+): void {
+  const [controller, setController] = React.useState<GestureController>();
 
   React.useEffect(() => {
     if (ref.current) {
@@ -27,13 +29,11 @@ export function useGestures<T>(handlers: GestureHandlers): React.RefObject<T> {
         };
       }
 
-      controller = new GestureController(ref.current, touchHandlers);
+      setController(new GestureController(ref.current, touchHandlers));
     }
 
     return () => {
       controller?.disableGestures();
     };
   }, [ref]);
-
-  return ref;
 }

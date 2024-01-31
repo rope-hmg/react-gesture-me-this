@@ -152,35 +152,34 @@ const x = {
   let h;
   if (r) {
     const u = o.fingers.values();
-    let { value: i, done: n } = u.next(), _ = i.is_moving_toward_centroid(), a = !0;
-    for (; !n && a; )
-      a = _ === i.is_moving_toward_centroid(), { value: i, done: n } = u.next();
-    if (a) {
+    let { value: i, done: n } = u.next(), _ = i.is_moving_toward_centroid(), l = !0;
+    for (; !n && l; )
+      l = _ === i.is_moving_toward_centroid(), { value: i, done: n } = u.next();
+    if (l) {
       const m = _ ? 0 : 1;
-      let l = 0;
+      let a = 0;
       for (const g of o.fingers.values())
-        l += g.position_delta.length();
-      l /= o.finger_count, l *= s, h = { strength: l, direction: m };
+        a += g.position_delta.length();
+      a /= o.finger_count, a *= s, h = { strength: a, direction: m };
     }
   }
   return h ? { is_recognised: !0, metrics: h } : { is_recognised: !1 };
 };
-function b(o) {
-  const t = d.useRef(null);
-  let e;
-  return d.useEffect(() => {
-    if (t.current) {
-      const s = {};
-      o.onPinch && (s.on_move = (r) => {
-        var u;
-        const h = y(r);
-        h.is_recognised && ((u = o.onPinch) == null || u.call(o, h.metrics));
-      }), e = new p(t.current, s);
+function b(o, t) {
+  const [e, s] = d.useState();
+  d.useEffect(() => {
+    if (o.current) {
+      const r = {};
+      t.onPinch && (r.on_move = (h) => {
+        var i;
+        const u = y(h);
+        u.is_recognised && ((i = t.onPinch) == null || i.call(t, u.metrics));
+      }), s(new p(o.current, r));
     }
     return () => {
       e == null || e.disableGestures();
     };
-  }, [t]), t;
+  }, [o]);
 }
 export {
   b as useGestures
